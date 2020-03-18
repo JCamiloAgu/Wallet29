@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_account_wallet"
+        android:enabled="true"
+        android:icon="@drawable/ic_account_balance_wallet_black_24dp"
+        android:title="@string/action_accounts"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_transaction"
+        android:enabled="true"
+        android:icon="@drawable/ic_transaction_black_24dp"
+        android:title="@string/action_transactions"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_savings"
+        android:enabled="true"
+        android:icon="@drawable/ic_savings_black_24dp"
+        android:title="@string/action_savings"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/navigation_summary"
+        android:enabled="true"
+        android:icon="@drawable/ic_summary_black_24dp"
+        android:title="@string/action_summary"
+        app:showAsAction="ifRoom" />
+
+</menu>

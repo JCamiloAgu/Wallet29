@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_categories">
+
+    <fragment
+        android:id="@+id/nav_categories"
+        android:name="com.camilo.wallet29.ui.categories.CategoriesFragment"
+        android:label="@string/menu_categories"
+        tools:layout="@layout/fragment_categories"/>
+
+    <fragment
+        android:id="@+id/nav_debts"
+        android:name="com.camilo.wallet29.ui.configurations.ConfigurationsFragment"
+        android:label="@string/menu_configurations"
+        tools:layout="@layout/fragment_configurations" />
+
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.camilo.wallet29.ui.debts.DebtsFragment"
+        android:label="@string/menu_debts"
+        tools:layout="@layout/fragment_debts" />
+
+</navigation>

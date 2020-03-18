@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_account_wallet">
+
+    <fragment
+        android:id="@+id/navigation_account_wallet"
+        android:name="com.camilo.wallet29.ui.account_wallet.AccountWalletFragment"
+        tools:layout="@layout/fragment_account_wallet"/>
+
+    <fragment
+        android:id="@+id/navigation_transaction"
+        android:name="com.camilo.wallet29.ui.transactions.TransactionFragment"
+        tools:layout="@layout/fragment_transaction" />
+
+    <fragment
+        android:id="@+id/navigation_savings"
+        android:name="com.camilo.wallet29.ui.debts.DebtsFragment"
+        tools:layout="@layout/fragment_debts" />
+</navigation>
