@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dateInformation"
+        android:background="@android:color/darker_gray"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:paddingBottom="7dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtDayNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="29"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Sábado"
+            app:layout_constraintStart_toEndOf="@+id/txtDayNumber"
+            app:layout_constraintTop_toTopOf="@+id/txtDayNumber" />
+
+        <TextView
+            android:id="@+id/txtMonthAndYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marzo de 2020"
+            app:layout_constraintBottom_toBottomOf="@+id/txtDayNumber"
+            app:layout_constraintStart_toStartOf="@+id/txtDay" />
+
+        <TextView
+            android:id="@+id/txtTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="$2000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtCategoryName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:text="Restaurantes"
+            app:layout_constraintStart_toEndOf="@+id/imgViewCategoryIcon"
+            app:layout_constraintTop_toTopOf="@+id/imgViewCategoryIcon" />
+
+        <TextView
+            android:id="@+id/txtTransactionValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+            android:layout_marginEnd="16dp"
+            android:text="$2000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtCategoryName" />
+
+        <TextView
+            android:id="@+id/txtAccountName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Efectivo"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAccountIcon"
+            app:layout_constraintTop_toBottomOf="@+id/txtCategoryName" />
+
+        <ImageView
+            android:id="@+id/imgViewCategoryIcon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_info_outline_black_24dp" />
+
+        <ImageView
+            android:id="@+id/imgViewAccountIcon"
+            android:layout_width="20dp"
+            android:layout_height="17dp"
+            android:layout_marginStart="8dp"
+            app:layout_constraintStart_toEndOf="@+id/imgViewCategoryIcon"
+            app:layout_constraintTop_toBottomOf="@+id/txtCategoryName"
+            app:srcCompat="@drawable/ic_menu_camera" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="6dp"
+        android:background="?android:attr/listDivider" />
+
+</LinearLayout>

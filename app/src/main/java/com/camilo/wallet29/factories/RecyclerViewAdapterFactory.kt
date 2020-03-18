@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewFactory(
+class RecyclerViewAdapterFactory(
     private val ctx: Context,
     private val layoutResource: Int,
     private val fn: (holder: ViewHolder, current: Any) -> Unit,
     private val items: ArrayList<Any>
-) : RecyclerView.Adapter<RecyclerViewFactory.ViewHolder>() {
+) : RecyclerView.Adapter<RecyclerViewAdapterFactory.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(ctx).inflate(layoutResource, parent, false)
