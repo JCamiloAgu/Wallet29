@@ -1,6 +1,7 @@
 package com.camilo.wallet29
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -44,12 +45,12 @@ class MainActivity : AppCompatActivity(){
 
         val navView: BottomNavigationView = findViewById(R.id.customBottomBar)
 
+
         val navController = findNavController(R.id.nav_host_fragment_bottom_nav)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 //        val appBarConfiguration = AppBarConfiguration(navGraph = navController.graph)
         navView.setupWithNavController(navController)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

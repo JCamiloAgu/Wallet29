@@ -39,9 +39,9 @@ class AccountWalletFragment : Fragment() {
         return root
     }
 
-    private fun setValuesToItemsRecyclerView(holder: RecyclerViewAdapterFactory.ViewHolder, current: Any) {
+    private fun setValuesToItemsRecyclerView(holder: RecyclerViewAdapterFactory.ViewHolder, items: ArrayList<Any>, position: Int) {
         val elements = holder.account.getViewHolderItemAccount()
-        current as Account
+        val current = items[position] as Account
 
         (elements["txtAccountName"] as TextView).text = current.accountName
         (elements["txtAccountBudget"] as TextView).text = "$${current.accountBalance.toString()}"

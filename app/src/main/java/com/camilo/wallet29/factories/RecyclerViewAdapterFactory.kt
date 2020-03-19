@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 class RecyclerViewAdapterFactory(
     private val ctx: Context,
     private val layoutResource: Int,
-    private val fn: (holder: ViewHolder, current: Any) -> Unit,
+    private val fn: (holder: ViewHolder, items: ArrayList<Any>, position: Int) -> Unit,
     private val items: ArrayList<Any>
 ) : RecyclerView.Adapter<RecyclerViewAdapterFactory.ViewHolder>() {
 
@@ -21,8 +21,7 @@ class RecyclerViewAdapterFactory(
     override fun getItemCount(): Int = items.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val current = items[position]
-        fn(holder, current)
+        fn(holder, items, position)
     }
 
 
