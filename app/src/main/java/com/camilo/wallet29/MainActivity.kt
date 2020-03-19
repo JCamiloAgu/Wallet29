@@ -1,23 +1,20 @@
 package com.camilo.wallet29
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.RelativeLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_activity_main.*
 
-class MainActivity : AppCompatActivity(){
+class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -29,9 +26,11 @@ class MainActivity : AppCompatActivity(){
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        spinnerAccounts.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, arrayOf("Todas las cuentas", "dos", "y tres"))
-
-
+        spinnerAccounts.adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_dropdown_item,
+            arrayOf("Todas las cuentas", "dos", "y tres")
+        )
 //        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
 //        val navView2: NavigationView = findViewById(R.id.nav_view)
 //        val navController2 = findNavController(R.id.nav_host_fragment2)
@@ -42,9 +41,13 @@ class MainActivity : AppCompatActivity(){
 //        setupActionBarWithNavController(navController2, appBarConfiguration)
 //        navView2.setupWithNavController(navController2)
 
-
         val navView: BottomNavigationView = findViewById(R.id.customBottomBar)
-
+        navView.post(Runnable {
+            val margins = (fabMain.layoutParams as RelativeLayout.LayoutParams).apply {
+                bottomMargin = (customBottomBar.height)
+            }
+            fabMain.layoutParams = margins
+        })
 
         val navController = findNavController(R.id.nav_host_fragment_bottom_nav)
         // Passing each menu ID as a set of Ids because each
@@ -53,13 +56,14 @@ class MainActivity : AppCompatActivity(){
         navView.setupWithNavController(navController)
     }
 
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_bottom_nav)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
     override fun onBackPressed() {
-        if(drawer_layout.isDrawerOpen(GravityCompat.START))
+        if (drawer_layout.isDrawerOpen(GravityCompat.START))
             drawer_layout.closeDrawer(GravityCompat.START)
         else
             super.onBackPressed()
