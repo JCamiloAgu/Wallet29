@@ -1,23 +1,26 @@
 package com.camilo.wallet29
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.RelativeLayout
+import android.widget.Toast
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.camilo.wallet29.ui.debs.DebsActivity
+import com.camilo.wallet29.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_activity_main.*
+import kotlinx.android.synthetic.main.nav_header_activity_main.view.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appBarConfiguration: AppBarConfiguration
-
+    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,23 +29,15 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        spinnerAccounts.adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_spinner_dropdown_item,
-            arrayOf("Todas las cuentas", "dos", "y tres")
-        )
-//        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
-//        val navView2: NavigationView = findViewById(R.id.nav_view)
-//        val navController2 = findNavController(R.id.nav_host_fragment2)
-//        // Passing each menu ID as a set of Ids because each
-//        // menu should be considered as top level destinations.
-//        appBarConfiguration = AppBarConfiguration(setOf(
-//            R.id.nav_categories, R.id.nav_debts, R.id.nav_configurations), drawerLayout)
-//        setupActionBarWithNavController(navController2, appBarConfiguration)
-//        navView2.setupWithNavController(navController2)
+        setUpSpinner()
 
-        val navView: BottomNavigationView = findViewById(R.id.customBottomBar)
-        navView.post {
+        setUpDrawerLayout()
+
+        setUpNavigationBottomBar()
+    }
+
+    private fun setUpNavigationBottomBar() {
+        customBottomBar.post {
             val margins = (fabMain.layoutParams as RelativeLayout.LayoutParams).apply {
                 bottomMargin = (customBottomBar.height - 10)
             }
@@ -50,16 +45,48 @@ class MainActivity : AppCompatActivity() {
         }
 
         val navController = findNavController(R.id.nav_host_fragment_bottom_nav)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-//        val appBarConfiguration = AppBarConfiguration(navGraph = navController.graph)
-        navView.setupWithNavController(navController)
+        customBottomBar.setupWithNavController(navController)
     }
 
+    private fun setUpDrawerLayout() {
 
-    override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.nav_host_fragment_bottom_nav)
-        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+        val header = nav_view.getHeaderView(0)
+        header.txtGoLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        actionBarDrawerToggle = ActionBarDrawerToggle(
+            this,
+            findViewById(R.id.drawer_layout),
+            R.string.Open,
+            R.string.Close
+        )
+        actionBarDrawerToggle.syncState()
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        nav_view.setNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_categories -> Toast.makeText(this, "Category", Toast.LENGTH_SHORT).show()
+                R.id.nav_debts -> {
+                    val intent = Intent(this, DebsActivity::class.java)
+                    startActivity(intent)
+                    drawer_layout.closeDrawer(nav_view)
+                }
+                R.id.nav_about -> Toast.makeText(this, "About", Toast.LENGTH_SHORT).show()
+            }
+
+            true
+
+        }
+    }
+
+    private fun setUpSpinner() {
+        spinnerAccounts.adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_dropdown_item,
+            arrayOf("Todas las cuentas", "dos", "y tres")
+        )
     }
 
     override fun onBackPressed() {
@@ -67,5 +94,10 @@ class MainActivity : AppCompatActivity() {
             drawer_layout.closeDrawer(GravityCompat.START)
         else
             super.onBackPressed()
+    }
+
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        return if (actionBarDrawerToggle.onOptionsItemSelected(item)) true else super.onOptionsItemSelected(item)
     }
 }
