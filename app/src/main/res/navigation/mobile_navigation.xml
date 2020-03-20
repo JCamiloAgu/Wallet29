@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_account_wallet">
+    app:startDestination="@+id/navigation_summary">
 
     <fragment
         android:id="@+id/navigation_account_wallet"
@@ -19,4 +19,8 @@
         android:id="@+id/navigation_savings"
         android:name="com.camilo.wallet29.ui.debts.DebtsFragment"
         tools:layout="@layout/fragment_debts" />
+    <fragment
+        android:id="@+id/navigation_summary"
+        android:name="com.camilo.wallet29.ui.SummaryFragment"
+        tools:layout="@layout/fragment_summary" />
 </navigation>

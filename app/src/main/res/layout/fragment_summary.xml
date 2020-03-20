@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SummaryFragment">
+
+    <Spinner
+        android:id="@+id/spinnerMothsSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewSpends"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/design_default_color_error"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardViewIncomes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMothsSummary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtSpendsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Gastos" />
+
+            <TextView
+                android:id="@+id/txtSpends"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtSpendsTitle"
+                android:layout_centerHorizontal="true"
+                android:text="$1200" />
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardViewIncomes"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardBackgroundColor="@color/material_on_background_disabled"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardViewSpends"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMothsSummary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtIncomeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Ingresos" />
+
+            <TextView
+                android:id="@+id/txtIncome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtIncomeTitle"
+                android:layout_centerHorizontal="true"
+                android:text="$1200" />
+
+        </RelativeLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#FFEBEE"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardViewSpends">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txtTitleAverageDay"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Prom. día"
+                app:layout_constraintEnd_toStartOf="@+id/divider4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/txtAverageDay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTitleAverageDay"
+                android:layout_centerHorizontal="true"
+                android:text="$800"
+                app:layout_constraintEnd_toEndOf="@id/txtTitleAverageDay"
+                app:layout_constraintStart_toStartOf="@id/txtTitleAverageDay"
+                app:layout_constraintTop_toBottomOf="@id/txtTitleAverageDay" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txtTitleAverageToday"
+                app:layout_constraintStart_toEndOf="@id/txtTitleAverageDay"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtTitleAverageToday"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Hoy"
+                app:layout_constraintEnd_toStartOf="@+id/divider5"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/divider4" />
+
+            <TextView
+                android:id="@+id/txtAverageToday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTitleAverageToday"
+                android:layout_centerHorizontal="true"
+                android:text="$ 7900"
+                app:layout_constraintEnd_toEndOf="@id/txtTitleAverageToday"
+                app:layout_constraintStart_toStartOf="@id/txtTitleAverageToday"
+                app:layout_constraintTop_toBottomOf="@id/txtTitleAverageToday" />
+
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/txtTitleAverageWeek"
+                app:layout_constraintStart_toEndOf="@id/txtTitleAverageToday"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/txtTitleAverageWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Semana"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/divider5" />
+
+            <TextView
+                android:id="@+id/txtAverageWeek"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTitleAverageWeek"
+                android:layout_centerHorizontal="true"
+                android:text="$ 8900"
+                app:layout_constraintEnd_toEndOf="@id/txtTitleAverageWeek"
+                app:layout_constraintStart_toStartOf="@id/txtTitleAverageWeek"
+                app:layout_constraintTop_toBottomOf="@id/txtTitleAverageWeek" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcViewSummary"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardSummary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

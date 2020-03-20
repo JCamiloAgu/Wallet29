@@ -5,11 +5,13 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.rc_view_item_account_wallet.view.*
 import kotlinx.android.synthetic.main.rc_view_item_account_wallet.view.txtAccountName
+import kotlinx.android.synthetic.main.rc_view_item_summary.view.*
 import kotlinx.android.synthetic.main.rc_view_item_transaction.view.*
+import kotlinx.android.synthetic.main.rc_view_item_transaction.view.txtCategoryName
 
 class ViewHolderFactory(val item: View) {
 
-    fun getViewHolderItemAccount(): MutableMap<String, View>{
+    fun getViewHolderItemAccount(): MutableMap<String, View> {
         val txtAccountName: TextView = item.txtAccountName
         val txtAccountBudget: TextView = item.txtAccountBudge
         val txtAccountType: TextView = item.txtAccountType
@@ -22,7 +24,7 @@ class ViewHolderFactory(val item: View) {
         return mutableMap
     }
 
-    fun getViewHolderItemTransaction(): MutableMap<String, View>{
+    fun getViewHolderItemTransaction(): MutableMap<String, View> {
 
         //Items Date Information
         val layoutDateInformation: ConstraintLayout = item.dateInformation
@@ -45,6 +47,24 @@ class ViewHolderFactory(val item: View) {
         mutableMap["txtCategoryName"] = txtCategoryName
         mutableMap["txtTransactionValue"] = txtTransactionValue
         mutableMap["txtAccountName"] = txtAccountName
+
+        return mutableMap
+    }
+
+    fun getViewHolderItemSummary(): MutableMap<String, View> {
+        val imgViewSummaryItemIcon = item.imgViewSummaryItemIcon
+        val txtCategoryName = item.txtCategoryName
+        val txtTotalTransaction = item.txtTotalTransaction
+        val progressBarSummary = item.progressBarSummary
+        val txtTransactionPercent = item.txtTransactionPercent
+
+        val mutableMap = mutableMapOf<String, View>()
+
+        mutableMap["imgViewSummaryItemIcon"] = imgViewSummaryItemIcon
+        mutableMap["txtCategoryName"] = txtCategoryName
+        mutableMap["progressBarSummary"] = progressBarSummary
+        mutableMap["txtTotalTransaction"] = txtTotalTransaction
+        mutableMap["txtTransactionPercent"] = txtTransactionPercent
 
         return mutableMap
     }

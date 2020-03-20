@@ -42,12 +42,12 @@ class MainActivity : AppCompatActivity() {
 //        navView2.setupWithNavController(navController2)
 
         val navView: BottomNavigationView = findViewById(R.id.customBottomBar)
-        navView.post(Runnable {
+        navView.post {
             val margins = (fabMain.layoutParams as RelativeLayout.LayoutParams).apply {
-                bottomMargin = (customBottomBar.height)
+                bottomMargin = (customBottomBar.height - 10)
             }
             fabMain.layoutParams = margins
-        })
+        }
 
         val navController = findNavController(R.id.nav_host_fragment_bottom_nav)
         // Passing each menu ID as a set of Ids because each
