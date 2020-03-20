@@ -5,6 +5,7 @@ import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.rc_view_item_account_wallet.view.*
 import kotlinx.android.synthetic.main.rc_view_item_account_wallet.view.txtAccountName
+import kotlinx.android.synthetic.main.rc_view_item_savings.view.*
 import kotlinx.android.synthetic.main.rc_view_item_summary.view.*
 import kotlinx.android.synthetic.main.rc_view_item_transaction.view.*
 import kotlinx.android.synthetic.main.rc_view_item_transaction.view.txtCategoryName
@@ -68,5 +69,24 @@ class ViewHolderFactory(val item: View) {
 
         return mutableMap
     }
+
+    fun getViewHolderItemSaving(): MutableMap<String, View> {
+        val imgViewSavingItemIcon = item.imgViewSavingItemIcon
+        val txtSavingName = item.txtSavingName
+        val txtTotalSaving = item.txtTotalSaving
+        val progressBarSaving = item.progressBarSaving
+        val txtSavingPercent = item.txtSavingPercent
+
+        val mutableMap = mutableMapOf<String, View>()
+
+        mutableMap["imgViewSavingItemIcon"] = imgViewSavingItemIcon
+        mutableMap["txtSavingName"] = txtSavingName
+        mutableMap["progressBarSaving"] = progressBarSaving
+        mutableMap["txtTotalSaving"] = txtTotalSaving
+        mutableMap["txtSavingPercent"] = txtSavingPercent
+
+        return mutableMap
+    }
+
 
 }
