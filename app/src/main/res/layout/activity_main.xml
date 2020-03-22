@@ -45,7 +45,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
-                android:background="?android:attr/windowBackground"
+                app:elevation="5dp"
+                android:elevation="15dp"
+                style="@style/Widget.MaterialComponents.BottomNavigationView"
                 app:labelVisibilityMode="labeled"
                 app:layout_behavior="@string/hide_bottom_view_on_scroll_behavior"
                 app:menu="@menu/bottom_nav_menu" />

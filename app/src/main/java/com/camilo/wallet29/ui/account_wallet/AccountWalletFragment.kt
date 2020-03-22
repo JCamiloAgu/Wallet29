@@ -4,14 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.camilo.wallet29.R
 import com.camilo.wallet29.factories.RecyclerViewAdapterFactory
 import com.camilo.wallet29.models.Account
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_account_wallet.view.*
 
 class AccountWalletFragment : Fragment() {
@@ -47,7 +45,7 @@ class AccountWalletFragment : Fragment() {
         val current = items[position] as Account
 
         (elements["txtAccountName"] as TextView).text = current.accountName
-        (elements["txtAccountBudget"] as TextView).text = "$${current.accountBalance.toString()}"
+        (elements["txtAccountBudget"] as TextView).text = "$${current.accountBalance}"
         (elements["txtAccountType"] as TextView).text = current.accountType
     }
 

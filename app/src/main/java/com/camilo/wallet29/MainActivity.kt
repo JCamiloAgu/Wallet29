@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
         header.txtGoLogin.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            drawer_layout.closeDrawer(nav_view)
         }
 
         actionBarDrawerToggle = ActionBarDrawerToggle(
@@ -98,6 +99,6 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return if (actionBarDrawerToggle.onOptionsItemSelected(item)) true else super.onOptionsItemSelected(item)
+        return if (actionBarDrawerToggle.onOptionsItemSelected(item)) true else super.onOptionsItemSelected(item!!)
     }
 }

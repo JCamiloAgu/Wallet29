@@ -1,4 +1,4 @@
-package com.camilo.wallet29.ui
+package com.camilo.wallet29.ui.summary
 
 import android.os.Bundle
 import android.view.LayoutInflater
