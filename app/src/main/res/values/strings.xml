@@ -41,6 +41,23 @@
 
     <string name="or"> Ó </string>
     <string name="forgot_pwd">¿Olvidaste la contraseña?</string>
+    <string name="edt_name_hint">Nombre</string>
+    <string name="title_add_account">Cuenta</string>
+    <string name="hint_balance">Saldo</string>
+    <string name="hint_description">Descripción</string>
+    <string name="btn_save">Guardar</string>
+
+    <!-- Account Wallet Type -->
+    <string name="text_cash">Efectivo</string>
+    <string name="text_credit_card">Tarjeta de crédito</string>
+    <string name="action_save">guardar</string>
+    <string name="text_description_none">Ninguna</string>
+    <string name="input_lenght_error">Este campo no puede estar vacío</string>
+    <string name="toast_add_account_wallet">Se Agregó Su Cuenta</string>
+    <string name="dialog_color_picker_title">Elije un color</string>
+    <string name="alert_dialog_dismiss_with_changes">¿Descartar cambios?</string>
+    <string name="dialog_neg_btn_discard">Descartar</string>
+    <string name="dialog_title_discard_changes">Descartar cambios</string>
 
 
 </resources>

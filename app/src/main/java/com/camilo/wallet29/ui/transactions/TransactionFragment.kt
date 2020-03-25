@@ -13,12 +13,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.camilo.wallet29.R
-import com.camilo.wallet29.factories.RecyclerViewAdapterFactory
+import com.camilo.wallet29.adapters.RecyclerViewAdapter
 import com.camilo.wallet29.models.Transactions
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_transaction.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class TransactionFragment : Fragment() {
@@ -26,12 +27,10 @@ class TransactionFragment : Fragment() {
     var totalValuesTransactions = 0
     var dateDayNumber = -1
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_transaction, container, false)
 
         setUpRecyclerView(root)
@@ -58,11 +57,10 @@ class TransactionFragment : Fragment() {
             )
         )
 
-        val adapter = RecyclerViewAdapterFactory(
+        val adapter = RecyclerViewAdapter(
             context!!,
             R.layout.rc_view_item_transaction,
-            ::setValuesToItemsRecyclerView,
-            items
+            ::setValuesToItemsRecyclerView
         )
         val rcView = root.rcViewTransactions
         rcView.adapter = adapter
@@ -77,14 +75,14 @@ class TransactionFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     private fun setValuesToItemsRecyclerView(
-        holder: RecyclerViewAdapterFactory.ViewHolder,
-        items: ArrayList<Any>,
+        holder: RecyclerViewAdapter.ViewHolder,
+        items: List<Any>,
         position: Int
     ) {
 
         val elements = holder.account.getViewHolderItemTransaction()
 
-        items.sortByDescending {
+        items.sortedByDescending {
             it as Transactions
             it.transactionDate[Calendar.DAY_OF_MONTH]
         }

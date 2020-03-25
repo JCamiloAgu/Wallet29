@@ -10,11 +10,10 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.camilo.wallet29.R
-import com.camilo.wallet29.factories.RecyclerViewAdapterFactory
+import com.camilo.wallet29.adapters.RecyclerViewAdapter
 import com.camilo.wallet29.models.Summary
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_summary.view.*
-import java.util.*
 
 class SummaryFragment : Fragment() {
 
@@ -36,12 +35,10 @@ class SummaryFragment : Fragment() {
             )
         }
 
-
-        val adapter = RecyclerViewAdapterFactory(
+        val adapter = RecyclerViewAdapter(
             context!!,
             R.layout.rc_view_item_summary,
-            ::setValuesToItemsRecyclerView,
-            items
+            ::setValuesToItemsRecyclerView
         )
 
         rcView.adapter = adapter
@@ -57,13 +54,13 @@ class SummaryFragment : Fragment() {
     }
 
     private fun setValuesToItemsRecyclerView(
-        holder: RecyclerViewAdapterFactory.ViewHolder,
-        items: ArrayList<Any>,
+        holder: RecyclerViewAdapter.ViewHolder,
+        items: List<Any>,
         position: Int
     ) {
         val elements = holder.account.getViewHolderItemSummary()
 
-        items.sortByDescending {
+        items.sortedByDescending {
             it as Summary
             it.categoryName
         }

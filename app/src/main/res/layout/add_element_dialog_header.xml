@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/addElementDialogHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="0dp"
+            android:theme="@style/AppTheme.NoActionBar">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/addElementDialogToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                android:paddingStart="6dp"
+                android:paddingEnd="16dp"
+                android:elevation="0dp"
+                app:contentInsetStartWithNavigation="0dp"
+                app:menu="@menu/add_element_dialog_menu"
+                app:navigationIcon="@drawable/ic_close_white_24dp"
+                app:titleTextColor="@android:color/white">
+
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <FrameLayout
+            android:id="@+id/addElementDialogBelowToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtNameElement"
+                android:layout_width="match_parent"
+                android:layout_height="128dp"
+                android:layout_gravity="top"
+                android:background="@color/colorPrimary"
+                android:paddingStart="24dp"
+                android:paddingEnd="24dp"
+                android:textColorHighlight="@color/colorAccent"
+                app:boxStrokeColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                app:hintTextColor="@android:color/white">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@color/colorPrimary"
+                    android:hint="@string/edt_name_hint"
+                    android:inputType="text"
+                    android:paddingBottom="6dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        </FrameLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabCustomizeElement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginEnd="12dp"
+            android:backgroundTint="@android:color/white"
+            android:elevation="6dp"
+            app:borderWidth="0dp"
+            android:src="@drawable/ic_format_paint_black_24dp"
+            android:translationY="-32dp" />
+
+
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

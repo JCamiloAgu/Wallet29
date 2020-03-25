@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.camilo.wallet29.R
-import com.camilo.wallet29.factories.RecyclerViewAdapterFactory
+import com.camilo.wallet29.adapters.RecyclerViewAdapter
 import com.camilo.wallet29.models.Saving
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_savings.view.*
@@ -26,20 +26,28 @@ class SavingsFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_savings, container, false)
         val rcView = root.rcViewSavings
 
-        val items = arrayListOf<Any>()
+        val items = arrayListOf<Any?>()
 
         for (i in 0..20) {
             items.add(
-                Saving(0, "Mi ahorro $i", 20, 400, "Ninguna", "19/03/2020", "19/04/2020", Calendar.getInstance())
+                Saving(
+                    0,
+                    "Mi ahorro $i",
+                    20,
+                    400,
+                    "Ninguna",
+                    "19/03/2020",
+                    "19/04/2020",
+                    Calendar.getInstance()
+                )
             )
         }
 
 
-        val adapter = RecyclerViewAdapterFactory(
+        val adapter = RecyclerViewAdapter(
             context!!,
             R.layout.rc_view_item_savings,
-            ::setValuesToItemsRecyclerView,
-            items
+            ::setValuesToItemsRecyclerView
         )
 
         rcView.adapter = adapter
@@ -50,17 +58,20 @@ class SavingsFragment : Fragment() {
             bottomMargin = (activity!!.customBottomBar.height)
         }
         rcView.layoutParams = margins
+
+
+
         return root
     }
 
     private fun setValuesToItemsRecyclerView(
-        holder: RecyclerViewAdapterFactory.ViewHolder,
-        items: ArrayList<Any>,
+        holder: RecyclerViewAdapter.ViewHolder,
+        items: List<Any>,
         position: Int
     ) {
         val elements = holder.account.getViewHolderItemSaving()
 
-        items.sortByDescending {
+        items.sortedByDescending {
             it as Saving
             it.updatedAt ?: it.createdAt
         }
@@ -71,7 +82,8 @@ class SavingsFragment : Fragment() {
 
         (elements["txtSavingName"] as TextView).text = current.name
         (elements["progressBarSaving"] as ProgressBar).progress = percent
-        (elements["txtTotalSaving"] as TextView).text = "$ ${current.saved} / ${current.totalToSave}"
+        (elements["txtTotalSaving"] as TextView).text =
+            "$ ${current.saved} / ${current.totalToSave}"
         (elements["txtSavingPercent"] as TextView).text = "% $percent"
 
     }

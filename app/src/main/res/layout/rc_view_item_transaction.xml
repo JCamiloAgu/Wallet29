@@ -84,7 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:text="Efectivo"
-            app:layout_constraintStart_toEndOf="@+id/imgViewAccountIcon"
+            app:layout_constraintStart_toEndOf="@+id/imgViewAccountIconTransaction"
             app:layout_constraintTop_toBottomOf="@+id/txtCategoryName" />
 
         <ImageView
@@ -98,7 +98,7 @@
             app:srcCompat="@drawable/ic_info_outline_black_24dp" />
 
         <ImageView
-            android:id="@+id/imgViewAccountIcon"
+            android:id="@+id/imgViewAccountIconTransaction"
             android:layout_width="20dp"
             android:layout_height="17dp"
             android:layout_marginStart="8dp"

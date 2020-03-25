@@ -1,8 +1,12 @@
 package com.camilo.wallet29.factories
 
+import android.media.Image
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
+import kotlinx.android.synthetic.main.rc_view_item_account_wallet.*
 import kotlinx.android.synthetic.main.rc_view_item_account_wallet.view.*
 import kotlinx.android.synthetic.main.rc_view_item_account_wallet.view.txtAccountName
 import kotlinx.android.synthetic.main.rc_view_item_savings.view.*
@@ -16,11 +20,15 @@ class ViewHolderFactory(val item: View) {
         val txtAccountName: TextView = item.txtAccountName
         val txtAccountBudget: TextView = item.txtAccountBudge
         val txtAccountType: TextView = item.txtAccountType
+        val cardViewContainerImageAccountIcon: CardView = item.cardViewContainerImageAccountIcon
+        val imgViewAccountIcon: ImageView = item.imgViewAccountIcon
 
         val mutableMap = mutableMapOf<String, View>()
         mutableMap["txtAccountName"] = txtAccountName
         mutableMap["txtAccountBudget"] = txtAccountBudget
         mutableMap["txtAccountType"] = txtAccountType
+        mutableMap["cardViewContainerImageAccountIcon"] = cardViewContainerImageAccountIcon
+        mutableMap["imgViewAccountIcon"] = imgViewAccountIcon
 
         return mutableMap
     }
