@@ -1,5 +1,6 @@
 package com.camilo.wallet29.interfaces
 
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -15,7 +16,7 @@ abstract class FragmentsView<T>: Fragment() {
     abstract fun setUpObservers()
     abstract fun fabClick()
 
-    abstract fun setRecyclerViewItemClickListener()
+    abstract fun setRecyclerViewItemClickListener(itemPosition: Int)
 
     abstract fun setUpDependencies()
 

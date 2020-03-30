@@ -1,74 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rcViewItemAccountWalletRoot"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardViewContainerImageAccountIcon"
-        android:layout_width="64dp"
-        android:layout_height="38dp"
-        app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/colorAccent"
-        android:elevation="0dp"
-        android:layout_marginBottom="12dp">
-
-    <ImageView
-        android:id="@+id/imgViewAccountIcon"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="center"
-        app:srcCompat="@drawable/ic_account_balance_wallet_black_24dp" />
-    </androidx.cardview.widget.CardView>
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/txtAccountName"
-        style="@style/TextAppearance.MaterialComponents.Subtitle1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="Mi Efectivo"
-        android:textSize="24sp"
-        android:translationY="-8dp"
-        app:layout_constraintStart_toEndOf="@+id/cardViewContainerImageAccountIcon"
-        app:layout_constraintTop_toTopOf="@+id/cardViewContainerImageAccountIcon" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewContainerImageAccountIcon"
+            android:layout_width="64dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="12dp"
+            android:backgroundTint="@color/colorAccent"
+            android:elevation="0dp"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/txtAccountBudge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="$2000"
-        android:textColor="@android:color/holo_green_dark"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardViewContainerImageAccountIcon"
-        app:layout_constraintStart_toStartOf="@+id/txtAccountName"
-        app:layout_constraintTop_toBottomOf="@+id/txtAccountName" />
+            <ImageView
+                android:id="@+id/imgViewAccountIcon"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_account_balance_wallet_black_24dp" />
+        </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/txtAccountType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="Efectivo"
-        app:layout_constraintBottom_toTopOf="@+id/txtAccountBudge"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtAccountName" />
+        <TextView
+            android:id="@+id/txtAccountName"
+            style="@style/TextAppearance.MaterialComponents.Subtitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Mi Efectivo"
+            android:textSize="24sp"
+            android:translationY="-8dp"
+            app:layout_constraintStart_toEndOf="@+id/cardViewContainerImageAccountIcon"
+            app:layout_constraintTop_toTopOf="@+id/cardViewContainerImageAccountIcon" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardViewContainerImageAccountIcon" />
+        <TextView
+            android:id="@+id/txtAccountBudge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$2000"
+            android:textColor="@android:color/holo_green_dark"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/cardViewContainerImageAccountIcon"
+            app:layout_constraintStart_toStartOf="@+id/txtAccountName"
+            app:layout_constraintTop_toBottomOf="@+id/txtAccountName" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txtAccountType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Efectivo"
+            app:layout_constraintBottom_toTopOf="@+id/txtAccountBudge"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtAccountName" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="8dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewContainerImageAccountIcon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

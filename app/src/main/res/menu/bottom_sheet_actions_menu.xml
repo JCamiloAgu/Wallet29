@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_insert"
+        android:icon="@drawable/ic_arrow_down_insert_24dp"
+        android:title="Insertar" />
+
+    <item
+        android:id="@+id/action_withdraw"
+        android:icon="@drawable/ic_arrow_upward_24dp"
+        android:title="Retirar" />
+
+    <item
+        android:id="@+id/action_transactions"
+        android:icon="@drawable/ic_transaction_black_24dp"
+        android:title="Transacciones" />
+
+    <item
+        android:id="@+id/action_edit"
+        android:icon="@drawable/ic_edit_black_24dp"
+        android:title="Editar" />
+
+    <item
+        android:id="@+id/action_transfer"
+        android:icon="@drawable/ic_arrow_forward_transfer_24dp"
+        android:title="Transferencias" />
+
+    <item
+        android:id="@+id/action_delete"
+        android:icon="@drawable/ic_delete_forever_24dp"
+        android:title="Eliminar" />
+
+
+</menu>

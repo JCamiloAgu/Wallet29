@@ -8,7 +8,11 @@
     <fragment
         android:id="@+id/navigation_account_wallet"
         android:name="com.camilo.wallet29.ui.account_wallet.AccountWalletFragment"
-        tools:layout="@layout/fragment_account_wallet"/>
+        tools:layout="@layout/fragment_account_wallet">
+        <action
+            android:id="@+id/action_navigation_account_wallet_to_navigation_transaction"
+            app:destination="@id/navigation_transaction" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_transaction"

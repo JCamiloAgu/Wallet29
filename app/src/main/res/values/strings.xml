@@ -59,5 +59,13 @@
     <string name="dialog_neg_btn_discard">Descartar</string>
     <string name="dialog_title_discard_changes">Descartar cambios</string>
 
+    <!-- BottomSheetTransaction -->
+    <string name="calculator_btn_delete">Borrar</string>
+    <string name="transaction_type_insert">Ingreso</string>
+    <string name="transaction_type_withdraw">Retiro</string>
+    <string name="transaction_type_transfer">Transferencia</string>
+    <string name="toast_update_account_wallet">Se actualizó su cuenta</string>
+    <string name="spinner_accounts_all">Todas las cuentas</string>
+
 
 </resources>

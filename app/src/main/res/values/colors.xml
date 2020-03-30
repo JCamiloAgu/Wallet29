@@ -4,16 +4,15 @@
     <color name="colorPrimaryDark">#0a7e07</color>
     <color name="colorAccent">#ffab40</color>
 
-    <color name="color_sign_up">#f51f0166</color>
-    <color name="color_log_in">#eff10783</color>
+    <color name="background_button_calculator">#424242</color>
+    <color name="text_color_normal_button_calculator">#FAFAFA</color>
+    <color name="text_color_special_button_calculator">#FF5722</color>
 
-    <color name="color_logo_sign_up">#d1bdff</color>
-    <color name="color_logo_log_in">#fdbbde</color>
+    <color name="bottom_sheet_transaction_text_insert">#0F9D58</color>
+    <color name="bottom_sheet_transaction_text_withdraw">#FF5252</color>
 
     <color name="white_trans">#b3fffcfc</color>
     <color name="color_text">#fafafa</color>
 
-    <color name="color_input_hint">#FFF</color>
-    <color name="color_text_highlight">#fafafa</color>
 
 </resources>

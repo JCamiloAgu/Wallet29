@@ -11,7 +11,7 @@ data class AccountWalletEntity(
     val id: Int,
     var name: String,
     var type: String,
-    var balance: Int,
+    var balance: Double,
     var description: String? = null,
     var color: Int,
     var icon: Int,

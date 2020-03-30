@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:animateLayoutChanges="true"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTransactionFrom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorPrimary"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="0dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardTransactionTo"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgViewTransactionFrom"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="6dp"
+                android:src="@drawable/ic_account_balance_wallet_black_24dp" />
+
+            <TextView
+                android:id="@+id/txtTransactionFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/imgViewTransactionFrom"
+                android:layout_marginStart="6dp"
+                android:layout_toEndOf="@id/imgViewTransactionFrom"
+                android:text="De cuenta" />
+
+            <TextView
+                android:id="@+id/txtTransactionFromAccountName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTransactionFrom"
+                android:layout_marginStart="6dp"
+                android:layout_toEndOf="@id/imgViewTransactionFrom"
+                android:text="Efectivo"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardTransactionTo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
+        android:clickable="true"
+        android:focusable="true"
+        app:cardCornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cardTransactionFrom"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imgViewTransactionTo"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_margin="6dp"
+                android:src="@drawable/ic_account_balance_wallet_black_24dp" />
+
+            <TextView
+                android:id="@+id/txtTransactionTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/imgViewTransactionTo"
+                android:layout_marginStart="6dp"
+                android:layout_toEndOf="@id/imgViewTransactionTo"
+                android:text="De categoría" />
+
+            <TextView
+                android:id="@+id/txtTransactionToAccountName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtTransactionTo"
+                android:layout_marginStart="6dp"
+                android:layout_toEndOf="@id/imgViewTransactionTo"
+                android:text="Familia"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1" />
+
+
+        </RelativeLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/txtDateOfTransaction"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Miércoles 11 Marzo, 2020"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@id/iconCalendarPicker"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTransactionFrom" />
+
+    <ImageView
+        android:id="@+id/iconCalendarPicker"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_date_black_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardTransactionTo" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtTransactionValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/txtDateOfTransaction">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:gravity="center"
+            android:hint="Ingreso"
+            android:text="$0"
+            android:textSize="24sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edtTransactionNotes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/edtTransactionValue">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/grey_100"
+            android:ellipsize="middle"
+            android:inputType="textMultiLine"
+            android:maxLines="3"
+            android:gravity="center"
+            android:hint="Notas ..." />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#212121"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@id/edtTransactionNotes">
+
+
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:columnCount="4"
+            android:orientation="horizontal"
+            android:padding="0dp"
+            android:rowCount="6">
+
+            <Button
+                android:id="@+id/Clean"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="C"
+                android:textColor="@color/text_color_special_button_calculator" />
+
+            <Button
+                android:id="@+id/Divide"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="/"
+                android:textColor="@color/text_color_special_button_calculator" />
+
+            <Button
+                android:id="@+id/Multiplica"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="X"
+                android:textColor="@color/text_color_special_button_calculator" />
+
+            <Button
+                android:id="@+id/Borrar"
+
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="@string/calculator_btn_delete"
+                android:textColor="@color/text_color_special_button_calculator" />
+
+            <Button
+                android:id="@+id/Siete"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="7"
+                android:textColor="@color/text_color_normal_button_calculator" />
+
+            <Button
+                android:id="@+id/Ocho"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="8"
+                android:textColor="@color/text_color_normal_button_calculator" />
+
+            <Button
+                android:id="@+id/Nueve"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="9"
+                android:textColor="@color/text_color_normal_button_calculator" />
+
+            <Button
+                android:id="@+id/Resta"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="-"
+                android:textColor="@color/text_color_special_button_calculator" />
+
+            <Button
+                android:id="@+id/Cuatro"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="4"
+                android:textColor="@color/text_color_normal_button_calculator" />
+
+            <Button
+                android:id="@+id/Cinco"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="5"
+                android:textColor="@color/text_color_normal_button_calculator" />
+
+            <Button
+                android:id="@+id/Seis"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="6"
+                android:textColor="@color/text_color_normal_button_calculator" />
+
+            <Button
+                android:id="@+id/Suma"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="+"
+                android:textColor="@color/text_color_special_button_calculator" />
+
+            <Button
+                android:id="@+id/Uno"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="1"
+                android:textColor="@color/text_color_normal_button_calculator" />
+
+            <Button
+                android:id="@+id/Dos"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="2"
+                android:textColor="@color/text_color_normal_button_calculator" />
+
+            <Button
+                android:id="@+id/Tres"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="3"
+                android:textColor="@color/text_color_normal_button_calculator" />
+
+            <ImageButton
+                android:id="@+id/Igual"
+                android:layout_rowSpan="2"
+                android:layout_gravity="fill"
+                android:layout_marginBottom="6dp"
+                android:layout_marginStart="6dp"
+                android:background="@color/text_color_special_button_calculator"
+                android:scaleType="center"
+                android:src="@drawable/ic_equal_24dp"
+                android:textColor="@color/text_color_special_button_calculator"
+                android:tint="@color/background_button_calculator" />
+
+            <Button
+                android:id="@+id/Cero"
+                android:layout_columnSpan="2"
+                android:layout_gravity="fill"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text="0"
+                android:textColor="@color/text_color_normal_button_calculator" />
+
+            <Button
+                android:id="@+id/Comma"
+                android:layout_margin="2dp"
+                android:backgroundTint="@color/background_button_calculator"
+                android:text=","
+                android:textColor="@color/text_color_normal_button_calculator" />
+        </GridLayout>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

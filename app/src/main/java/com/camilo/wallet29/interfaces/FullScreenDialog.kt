@@ -1,6 +1,5 @@
 package com.camilo.wallet29.interfaces
 
-import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -96,5 +95,7 @@ abstract class FullScreenDialog : DialogFragment() {
     abstract fun isAllInputsCorrect(): Boolean
 
     abstract fun insert()
+
+    abstract fun update()
 
 }

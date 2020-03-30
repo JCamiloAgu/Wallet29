@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 class AccountWalletViewModel(application: Application): ViewModel<AccountWalletRepository, AccountWalletEntity>(application) {
     override lateinit var repository: AccountWalletRepository
 
+    val accountsFilter: MutableLiveData<String> = MutableLiveData("")
 
     val data: LiveData<List<AccountWalletEntity?>> by lazy { repository.getAllData() }
 

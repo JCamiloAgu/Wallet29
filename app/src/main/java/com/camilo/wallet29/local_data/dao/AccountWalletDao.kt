@@ -18,5 +18,5 @@ interface AccountWalletDao {
     suspend fun delete(accountWalletEntity: AccountWalletEntity)
 
     @Update
-    suspend fun update(vararg accountWalletEntity: AccountWalletEntity)
+    suspend fun update(accountWalletEntity: AccountWalletEntity)
 }

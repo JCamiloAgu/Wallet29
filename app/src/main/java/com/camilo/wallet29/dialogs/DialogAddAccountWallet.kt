@@ -1,6 +1,5 @@
 package com.camilo.wallet29.dialogs
 
-import android.app.AlertDialog
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
@@ -22,7 +21,8 @@ import java.util.*
 
 class DialogAddAccountWallet(
     private val viewModel: AccountWalletViewModel,
-    override var color: Int = -688361
+    override var color: Int,
+    private val accountWalletEntity: AccountWalletEntity?
 
 ) : FullScreenDialog() {
 
@@ -34,7 +34,7 @@ class DialogAddAccountWallet(
     }
 
     override fun display(fragmentManager: FragmentManager?): FullScreenDialog? {
-        val fullScreen = DialogAddAccountWallet(viewModel)
+        val fullScreen = DialogAddAccountWallet(viewModel, color, accountWalletEntity)
         fullScreen.show(fragmentManager!!, TAG)
         return fullScreen
     }
@@ -52,6 +52,12 @@ class DialogAddAccountWallet(
         val name = view.edtNameElement
         val balance = view.edtBalance
         val description = view.edtDescription
+
+        if (accountWalletEntity != null) {
+            name.editText!!.setText(accountWalletEntity.name)
+            balance.editText!!.setText("${accountWalletEntity.balance}")
+            description.editText!!.setText(accountWalletEntity.description)
+        }
 
         inputs = arrayOf(name, balance, description)
 
@@ -71,9 +77,14 @@ class DialogAddAccountWallet(
 
     override fun menuItemClick() {
         if (isAllInputsCorrect()) {
-            insert()
+            if (accountWalletEntity == null) {
+                insert()
+                activity!!.toast(getString(R.string.toast_add_account_wallet))
+            } else {
+                update()
+                activity!!.toast(getString(R.string.toast_update_account_wallet))
+            }
             dismiss()
-            activity!!.toast(getString(R.string.toast_add_account_wallet))
         }
     }
 
@@ -81,10 +92,10 @@ class DialogAddAccountWallet(
     override fun toolbarNavigationItemClick() {
         var isInputsChange = false
         for (i in inputs.indices) {
-            if(i == 2)
-                if(inputs[i].text() != getString(R.string.text_description_none))
+            if (i == 2)
+                if (inputs[i].text() != getString(R.string.text_description_none))
                     isInputsChange = true
-            if (inputs[i].editText!!.text.isNotEmpty()) {
+            if (inputs[i].editText!!.text.isNotEmpty() && i != 2) {
                 isInputsChange = true
             }
         }
@@ -135,7 +146,7 @@ class DialogAddAccountWallet(
                 type = if (view?.radioButtonCash!!.isChecked) getString(R.string.text_cash) else getString(
                     R.string.text_credit_card
                 ),
-                balance = view?.edtBalance!!.text().toInt(),
+                balance = view?.edtBalance!!.text().toDouble(),
                 description = view?.edtDescription!!.text(),
                 color = color,
                 icon = if (view?.radioButtonCash!!.isChecked) R.drawable.ic_account_balance_wallet_black_24dp else R.drawable.ic_credit_card_white_24dp,
@@ -143,6 +154,22 @@ class DialogAddAccountWallet(
                 updatedAt = Calendar.getInstance()
             )
         )
+    }
+
+    override fun update() {
+        accountWalletEntity!!.name = view?.edtNameElement!!.text()
+        accountWalletEntity.type =
+            if (view?.radioButtonCash!!.isChecked) getString(R.string.text_cash) else getString(
+                R.string.text_credit_card
+            )
+        accountWalletEntity.balance = view?.edtBalance!!.text().toDouble()
+        accountWalletEntity.description = view?.edtDescription!!.text()
+        accountWalletEntity.color = color
+        accountWalletEntity.icon =
+            if (view?.radioButtonCash!!.isChecked) R.drawable.ic_account_balance_wallet_black_24dp else R.drawable.ic_credit_card_white_24dp
+        accountWalletEntity.updatedAt = Calendar.getInstance()
+
+        viewModel.update(accountWalletEntity)
     }
 }
 
