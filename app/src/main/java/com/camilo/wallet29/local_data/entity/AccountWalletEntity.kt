@@ -14,7 +14,7 @@ data class AccountWalletEntity(
     var balance: Double,
     var description: String? = null,
     var color: Int,
-    var icon: Int,
+    var iconId: Int,
     val createdAt: Calendar,
     var updatedAt: Calendar
 )

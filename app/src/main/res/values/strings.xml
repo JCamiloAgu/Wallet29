@@ -14,9 +14,7 @@
 
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
 
-    <string name="home_second">Home Second</string>
     <string name="menu_categories">Categorías</string>
     <string name="menu_configurations">Configuraciones</string>
     <string name="menu_rate_us">Califícanos</string>
@@ -66,6 +64,13 @@
     <string name="transaction_type_transfer">Transferencia</string>
     <string name="toast_update_account_wallet">Se actualizó su cuenta</string>
     <string name="spinner_accounts_all">Todas las cuentas</string>
+    <string name="category_transport">Transporte</string>
+    <string name="category_family">Familia</string>
+    <string name="category_vehicle">Vehículo</string>
+    <string name="category_shop">Compras</string>
+    <string name="title_add_category">Categoría</string>
+    <string name="toast_add_category">Categoría agregada</string>
+    <string name="toast_update_category">Se actualizó la categoría</string>
 
 
 </resources>

@@ -5,17 +5,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_categories"
+            android:id="@+id/navigation_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/navigation_categories"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_categories" />
 
         <item
-            android:id="@+id/nav_debts"
+            android:id="@+id/navigation_debts"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_debts" />
 
         <item
-            android:id="@+id/nav_configurations"
+            android:id="@+id/navigation_configurations"
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="@string/menu_configurations" />
     </group>
@@ -24,12 +28,12 @@
         <menu android:checkableBehavior="single">
 
             <item
-                android:id="@+id/nav_rate_us"
+                android:id="@+id/navigation_rate_us"
                 android:icon="@drawable/ic_star_black_24dp"
                 android:title="@string/menu_rate_us" />
 
             <item
-                android:id="@+id/nav_about"
+                android:id="@+id/navigation_about"
                 android:icon="@drawable/ic_info_outline_black_24dp"
                 android:title="@string/menu_about" />
         </menu>

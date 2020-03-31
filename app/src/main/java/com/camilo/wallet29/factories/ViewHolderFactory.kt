@@ -1,14 +1,13 @@
 package com.camilo.wallet29.factories
 
-import android.media.Image
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.constraintlayout.widget.ConstraintLayout
-import kotlinx.android.synthetic.main.rc_view_item_account_wallet.*
 import kotlinx.android.synthetic.main.rc_view_item_account_wallet.view.*
 import kotlinx.android.synthetic.main.rc_view_item_account_wallet.view.txtAccountName
+import kotlinx.android.synthetic.main.rc_view_item_categories.view.*
 import kotlinx.android.synthetic.main.rc_view_item_savings.view.*
 import kotlinx.android.synthetic.main.rc_view_item_summary.view.*
 import kotlinx.android.synthetic.main.rc_view_item_transaction.view.*
@@ -34,7 +33,6 @@ class ViewHolderFactory(val item: View) {
     }
 
     fun getViewHolderItemTransaction(): MutableMap<String, View> {
-
         //Items Date Information
         val layoutDateInformation: ConstraintLayout = item.dateInformation
         val txtDayNumber: TextView = item.txtDayNumber
@@ -96,5 +94,19 @@ class ViewHolderFactory(val item: View) {
         return mutableMap
     }
 
+    fun getViewHolderItemCategory(): MutableMap<String, View> {
+        val txtCategoryMainName: TextView = item.txtCategoryMainName
+        val imgCategoryMainIcon: ImageView = item.imgCategoryMainIcon
+        val txtCategoryMainSpends: TextView = item.txtCategoryMainSpends
+        val rootCardCategory: CardView = item.rootCardCategory
+
+        val mutableMap = mutableMapOf<String, View>()
+        mutableMap["txtCategoryMainName"] = txtCategoryMainName
+        mutableMap["imgCategoryMainIcon"] = imgCategoryMainIcon
+        mutableMap["txtCategoryMainSpends"] = txtCategoryMainSpends
+        mutableMap["rootCardCategory"] = rootCardCategory
+
+        return mutableMap
+    }
 
 }

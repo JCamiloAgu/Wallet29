@@ -44,6 +44,10 @@ class AccountWalletFragment : FragmentsView<AccountWalletEntity>() {
         root = inflater.inflate(R.layout.fragment_account_wallet, container, false)
         setUpDependencies()
 
+        activity!!.customBottomBar.visibility = View.VISIBLE
+        activity!!.fabMain.visibility = View.VISIBLE
+
+
         items = viewModel.data
 
         setUpRecyclerView(root.rcViewAccountsWallet)
@@ -215,7 +219,10 @@ class AccountWalletFragment : FragmentsView<AccountWalletEntity>() {
             it as AccountWalletEntity
             it.updatedAt
         }
+
         val current = mItems[position] as AccountWalletEntity
+        val drawable =
+            Constants.changeDrawableColor(context!!, Constants.icons[current.iconId]!!.drawable)
 
         (elements["txtAccountName"] as TextView).text = current.name
         (elements["txtAccountBudget"] as TextView).text = "$ ${current.balance}"
@@ -227,12 +234,14 @@ class AccountWalletFragment : FragmentsView<AccountWalletEntity>() {
         )
         (elements["cardViewContainerImageAccountIcon"] as CardView).backgroundTintList =
             colorStateList
-        (elements["imgViewAccountIcon"] as ImageView).setImageDrawable(context!!.getDrawable(current.icon))
+        (elements["imgViewAccountIcon"] as ImageView).setImageDrawable(drawable)
 
     }
 
     override fun setUpDependencies() {
-        val dao = Wallet29RoomDatabase.getDatabase(context = context!!).accountWalletDao()
+        val dao = Wallet29RoomDatabase.getDatabase(
+            context = context!!
+        ).accountWalletDao()
         viewModel.repository = AccountWalletRepository(dao)
     }
 

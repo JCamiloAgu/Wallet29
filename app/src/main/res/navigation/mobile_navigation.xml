@@ -28,4 +28,33 @@
         android:id="@+id/navigation_summary"
         android:name="com.camilo.wallet29.ui.summary.SummaryFragment"
         tools:layout="@layout/fragment_summary" />
+
+    <fragment
+        android:id="@+id/navigation_categories"
+        android:name="com.camilo.wallet29.ui.categories.CategoriesFragment"
+        android:label="@string/menu_categories"
+        tools:layout="@layout/fragment_categories"/>
+
+    <fragment
+        android:id="@+id/navigation_debts"
+        android:name="com.camilo.wallet29.ui.configurations.ConfigurationsFragment"
+        android:label="@string/menu_configurations"
+        tools:layout="@layout/fragment_configurations" />
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="com.camilo.wallet29.ui.debts.DebtsFragment"
+        android:label="@string/menu_debts"
+        tools:layout="@layout/fragment_debts" />
+
+    <action android:id="@+id/action_global_nav_categories" app:destination="@id/navigation_categories"/>
+    <action
+        android:id="@+id/action_global_navigation_account_wallet"
+        app:destination="@id/navigation_account_wallet"
+        app:launchSingleTop="true"
+        app:popUpTo="@id/navigation_account_wallet" />
+    <action android:id="@+id/action_global_navigation_debts" app:destination="@id/navigation_debts"/>
+    <action android:id="@+id/action_global_navigation_about" app:destination="@id/navigation_about"/>
+    <action android:id="@+id/action_global_navigation_transaction" app:destination="@id/navigation_transaction"/>
+
 </navigation>

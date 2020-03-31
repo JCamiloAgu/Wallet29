@@ -1,12 +1,10 @@
 package com.camilo.wallet29.dialogs
 
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.graphics.ColorUtils
 import androidx.fragment.app.FragmentManager
 import com.camilo.wallet29.R
 import com.camilo.wallet29.common.*
@@ -28,6 +26,9 @@ class DialogAddAccountWallet(
 
     private lateinit var inputs: Array<TextInputLayout>
 
+    override var iconId: Int = accountWalletEntity?.iconId ?: 0
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.AppTheme_FullScreenDialog);
@@ -38,7 +39,6 @@ class DialogAddAccountWallet(
         fullScreen.show(fragmentManager!!, TAG)
         return fullScreen
     }
-
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -57,6 +57,7 @@ class DialogAddAccountWallet(
             name.editText!!.setText(accountWalletEntity.name)
             balance.editText!!.setText("${accountWalletEntity.balance}")
             description.editText!!.setText(accountWalletEntity.description)
+            changeFabIcon(view.fabCustomizeElement)
         }
 
         inputs = arrayOf(name, balance, description)
@@ -69,7 +70,7 @@ class DialogAddAccountWallet(
         }
 
         name.post {
-            changeColors(color)
+            changeColors()
         }
 
         return view
@@ -87,7 +88,6 @@ class DialogAddAccountWallet(
             dismiss()
         }
     }
-
 
     override fun toolbarNavigationItemClick() {
         var isInputsChange = false
@@ -118,8 +118,8 @@ class DialogAddAccountWallet(
         return isInputsCorrect
     }
 
-    override fun changeColors(color: Int) {
-        super.changeColors(color)
+    override fun changeColors() {
+        super.changeColors()
 
         val colorStateList = ColorStateList(
             arrayOf(intArrayOf(android.R.attr.state_enabled)),
@@ -130,11 +130,6 @@ class DialogAddAccountWallet(
             radioCreditCard.buttonTintList = colorStateList
             edtBalance.setHintsColor(color)
             edtDescription.setHintsColor(color)
-        }
-
-        if (dialog != null) {
-            val finalColor = ColorUtils.blendARGB(color, Color.BLACK, 0.2f)
-            dialog!!.window?.statusBarColor = ColorUtils.setAlphaComponent(finalColor, 255)
         }
     }
 
@@ -149,7 +144,7 @@ class DialogAddAccountWallet(
                 balance = view?.edtBalance!!.text().toDouble(),
                 description = view?.edtDescription!!.text(),
                 color = color,
-                icon = if (view?.radioButtonCash!!.isChecked) R.drawable.ic_account_balance_wallet_black_24dp else R.drawable.ic_credit_card_white_24dp,
+                iconId = iconId,
                 createdAt = Calendar.getInstance(),
                 updatedAt = Calendar.getInstance()
             )
@@ -165,8 +160,7 @@ class DialogAddAccountWallet(
         accountWalletEntity.balance = view?.edtBalance!!.text().toDouble()
         accountWalletEntity.description = view?.edtDescription!!.text()
         accountWalletEntity.color = color
-        accountWalletEntity.icon =
-            if (view?.radioButtonCash!!.isChecked) R.drawable.ic_account_balance_wallet_black_24dp else R.drawable.ic_credit_card_white_24dp
+        accountWalletEntity.iconId = iconId
         accountWalletEntity.updatedAt = Calendar.getInstance()
 
         viewModel.update(accountWalletEntity)

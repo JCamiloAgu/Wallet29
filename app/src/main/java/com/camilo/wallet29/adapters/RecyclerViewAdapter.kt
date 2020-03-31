@@ -37,7 +37,8 @@ class RecyclerViewAdapter(
         val account = ViewHolderFactory(itemView)
 
         init {
-            item.rcViewItemAccountWalletRoot.setOnClickListener { onItemClick(adapterPosition) }
+//            item.rcViewItemAccountWalletRoot.setOnClickListener { onItemClick(adapterPosition) }
+            item.setOnClickListener { onItemClick(adapterPosition) }
         }
     }
 

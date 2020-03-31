@@ -18,11 +18,11 @@ abstract class FragmentsView<T>: Fragment() {
 
     abstract fun setRecyclerViewItemClickListener(itemPosition: Int)
 
-    abstract fun setUpDependencies()
-
     abstract fun <T> setValuesToItemsRecyclerView(
         holder: RecyclerViewAdapter.ViewHolder,
         items: List<T>,
         position: Int
     )
+
+    abstract fun setUpDependencies()
 }

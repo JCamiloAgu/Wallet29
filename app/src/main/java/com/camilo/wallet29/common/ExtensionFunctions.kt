@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import com.camilo.wallet29.dialogs.DialogAddAccountWallet
+import com.camilo.wallet29.interfaces.FullScreenDialog
 import com.google.android.material.textfield.TextInputLayout
 import java.util.regex.Pattern
 
@@ -53,7 +54,7 @@ fun TextInputLayout.setHintsColor(color: Int) {
 }
 
 
-fun DialogAddAccountWallet.isValidInput(name: String): Boolean = name.isNotEmpty()
+fun isValidInput(name: String): Boolean = name.isNotEmpty()
 
 
 

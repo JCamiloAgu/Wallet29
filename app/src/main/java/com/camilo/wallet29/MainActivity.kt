@@ -3,9 +3,6 @@ package com.camilo.wallet29
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import android.widget.RelativeLayout
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -14,14 +11,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.camilo.wallet29.local_data.entity.AccountWalletEntity
-import com.camilo.wallet29.ui.debs.DebsActivity
 import com.camilo.wallet29.ui.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_activity_main.*
 import kotlinx.android.synthetic.main.nav_header_activity_main.view.*
 
 class MainActivity : AppCompatActivity() {
@@ -74,31 +68,46 @@ class MainActivity : AppCompatActivity() {
         actionBarDrawerToggle.syncState()
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        nav_view.setCheckedItem(R.id.navigation_home)
+
         nav_view.setNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.nav_categories -> Toast.makeText(this, "Category", Toast.LENGTH_SHORT).show()
-                R.id.nav_debts -> {
-                    val intent = Intent(this, DebsActivity::class.java)
-                    startActivity(intent)
+                R.id.navigation_home -> {
+                    findNavController(R.id.nav_host_fragment_bottom_nav).navigate(R.id.action_global_navigation_account_wallet)
                     drawer_layout.closeDrawer(nav_view)
                 }
-                R.id.nav_about -> Toast.makeText(this, "About", Toast.LENGTH_SHORT).show()
+                R.id.navigation_categories -> {
+                    findNavController(R.id.nav_host_fragment_bottom_nav).navigate(R.id.action_global_nav_categories)
+                    drawer_layout.closeDrawer(nav_view)
+                }
+                R.id.navigation_debts -> {
+                    findNavController(R.id.nav_host_fragment_bottom_nav).navigate(R.id.action_global_navigation_debts)
+                    drawer_layout.closeDrawer(nav_view)
+                }
+                R.id.navigation_about -> {
+                    findNavController(R.id.nav_host_fragment_bottom_nav).navigate(R.id.action_global_navigation_about)
+                    drawer_layout.closeDrawer(nav_view)
+                }
             }
-
             true
-
         }
     }
 
     override fun onBackPressed() {
+        val currentDestination =
+            findNavController(R.id.nav_host_fragment_bottom_nav).currentDestination!!.id
         if (drawer_layout.isDrawerOpen(GravityCompat.START))
             drawer_layout.closeDrawer(GravityCompat.START)
+        else if (currentDestination == R.id.navigation_categories || currentDestination == R.id.navigation_debts || currentDestination == R.id.navigation_about)
+            findNavController(R.id.nav_host_fragment_bottom_nav).navigate(R.id.action_global_navigation_account_wallet)
         else
             super.onBackPressed()
     }
 
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        return if (actionBarDrawerToggle.onOptionsItemSelected(item)) true else super.onOptionsItemSelected(item!!)
+        return if (actionBarDrawerToggle.onOptionsItemSelected(item)) true else super.onOptionsItemSelected(
+            item!!
+        )
     }
 }

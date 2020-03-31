@@ -99,6 +99,10 @@ dependencies {
     //ColorPicker
     implementation 'com.github.dhaval2404:colorpicker:1.0'
 
+    //Icon picker
+    implementation "com.maltaisn:icondialog:3.1.0"
+    implementation "com.maltaisn:iconpack-default:1.0.0"
+
     //Dialogs
     implementation 'com.shreyaspatil:MaterialDialog:2.1'
 
